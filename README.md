@@ -112,6 +112,9 @@ shortID复制xui里面，复制第一个shortID到Xboard里面。这里是2e9f�
 
 此外xui不能开启二步验证，对接api没有二步验证逻辑。
 
+`"xui-skip-ssl-check": `如果证书与域名不匹配（如直接访问IP，而未使用证书域名），可信环境中可以跳过验证。
+
+<br>
 
 然后下载：[xboard2xui](https://github.com/oldfriendme/xboard2xui/releases)
 
