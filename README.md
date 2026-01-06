@@ -100,7 +100,7 @@ shortID复制xui里面，复制第一个shortID到Xboard里面。这里是2e9f�
 
 两个NodeID填之前上面记下来的。
 
-"flow-control"这个，填实际的流控就行。
+"flow-control"这个，填实际的流控就行。没有就填：""
 
 <br>
 
