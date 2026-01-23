@@ -102,6 +102,8 @@ shortID复制xui里面，复制第一个shortID到Xboard里面。这里是2e9f�
 
 "flow-control"这个，填实际的流控就行。没有就填：""
 
+"protocol"这个，填协议全称+小写，如："vless"。需与xboard协议定义一致
+
 <br>
 
 "user": "admin",
