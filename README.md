@@ -139,3 +139,50 @@ shortID复制xui里面，复制第一个shortID到Xboard里面。这里是2e9f�
 不过建议软件与xui安装在同一台VPS上，对接xui使用localhost+http协议，对接xboard使用https远程，就像对接xrayr一样的控制行为。
 
 如果节点不通，可以对比下xui与xboard下发配置的差异，从而找出问题。
+
+<br>
+
+---
+
+<br>
+
+#### 常见问题
+
+<details>
+	
+<summary>xui卡死</summary>
+
+<br>
+
+X-UI卡死问题早已有之，即使单独使用xui也有这种现象，表现症状：
+
+- 1.xui虽然会显示用户在线与离线，但是xui本身的流量统计不再增加。（用户流量使用一直为0，或使用后不增加）
+- 2.用户也正常连接，不超时（这个是xray内核负责的，面板卡死不影响内核）
+
+<br>
+
+当xui卡死后，即使有设备在使用，xboard用户也会显示黄色无人使用：![](img/xbbtn.jpg?raw=true)
+
+<br>
+
+#### 排查是否卡死：
+
+打开X-UI日志
+
+![](img/xuilog.jpg?raw=true)
+
+
+查看是否出现出现大量的
+
+![](img/xuiwarn.jpg?raw=true)
+
+
+<br>
+
+常见解决办法：
+
+重启面板几乎可以解决99%的卡死问题：（注意：大多数情况只需要重启面板，并不需要重启xray与软件）
+
+![](img/xuireboot.jpg?raw=true)
+
+</details>
