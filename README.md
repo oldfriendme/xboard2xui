@@ -13,21 +13,21 @@ xboard backend with xui
 
 按照常用的设置就行。下面“安全”选Reality，添加，正常生成配置信息，多余的留空即可。
 
-![](https://github.com/oldfriendme/xboard2xui/blob/main/img/addin.jpg?raw=true)
+![](img/addin.jpg?raw=true)
 
 <br>
 
 #### 1.2设置入站选项
 
-![](https://github.com/oldfriendme/xboard2xui/blob/main/img/xuiconfig.jpg?raw=true)
+![](img/xuiconfig.jpg?raw=true)
 
-![](https://github.com/oldfriendme/xboard2xui/blob/main/img/xuiconfig2.jpg?raw=true)
+![](img/xuiconfig2.jpg?raw=true)
 
 <br>
 
 添加完后，会生成一个ID，这个是xui的NodeID，比如下面的NodeID就是"**1**"
 
-![](https://github.com/oldfriendme/xboard2xui/blob/main/img/nodeidxui.jpg?raw=true)
+![](img/nodeidxui.jpg?raw=true)
 
 <br>
 
@@ -40,7 +40,7 @@ xboard backend with xui
 
 然后Xboard添加协议，选"vless"，把xui的参数复制到Xboard里面。
 
-![](https://github.com/oldfriendme/xboard2xui/blob/main/img/xbconfig.jpg?raw=true)
+![](img/xbconfig.jpg?raw=true)
 
 注意，这里的参数要与之前设置的参数一致
 
@@ -56,7 +56,7 @@ shortID复制xui里面，复制第一个shortID到Xboard里面。这里是2e9f�
 <details>
 <summary>参考之前的</summary>
   
-![](https://github.com/oldfriendme/xboard2xui/blob/main/img/xuiconfig2.jpg?raw=true)
+![](img/xuiconfig2.jpg?raw=true)
 
 </details>
 
@@ -64,7 +64,7 @@ shortID复制xui里面，复制第一个shortID到Xboard里面。这里是2e9f�
 
 然后保存，记下NodeID。比如我这个是"11"
 
-![](https://github.com/oldfriendme/xboard2xui/blob/main/img/nodeidxb.jpg?raw=true)
+![](img/nodeidxb.jpg?raw=true)
 
 <br>
 
@@ -126,7 +126,7 @@ shortID复制xui里面，复制第一个shortID到Xboard里面。这里是2e9f�
 
 然后，可以打开xui，展开你的xui 对应的 NodeID的详细客户端信息，可以看到多个`xboard_`开头的用户，这就是xboard创建的用户，说明对接成功了。
 
-![](https://github.com/oldfriendme/xboard2xui/blob/main/img/xuiend.jpg?raw=true)
+![](img/xuiend.jpg?raw=true)
 
 <br>
 
