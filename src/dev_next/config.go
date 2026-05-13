@@ -46,7 +46,15 @@ func readConf(conffile string) Config {
 	
 	mp:=cfg.Protocol
 	
-	if !(mp == "vless" || mp == "vmess" || mp == "trojan" || mp == "shadowsocks" ) {
+	valid := map[string]struct{}{
+		"vless": {},
+		"vmess": {},
+		"trojan": {},
+		"shadowsocks": {},
+		"hysteria": {},
+	}
+	
+	if _, ok := valid[mp]; !ok {
 		fmt.Println("ERR: Protocol not supported ",mp)
 		os.Exit(-1)
 	}

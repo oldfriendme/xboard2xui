@@ -1,0 +1,65 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        goarch: [amd64, arm64]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25"
+
+      - name: Build
+        run: |
+          mkdir -p dist
+          export CGO_ENABLED=0
+          export GOOS=linux
+          export GOARCH=${{ matrix.goarch }}
+
+          OUTPUT=xboard2xui-linux-${GOARCH}
+
+          go build -ldflags "-s -w" -o $OUTPUT ./src/dev_next
+
+          zip dist/${OUTPUT}.zip $OUTPUT
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-${{ matrix.goarch }}
+          path: dist/*.zip
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+
+      - name: Prepare files
+        run: |
+          mkdir upload
+          find dist -name "*.zip" -exec cp {} upload/ \;
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: upload/*.zip
