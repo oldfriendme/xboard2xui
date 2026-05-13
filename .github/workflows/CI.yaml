@@ -31,12 +31,13 @@ jobs:
           export CGO_ENABLED=0
           export GOOS=linux
           export GOARCH=${{ matrix.goarch }}
+          cd src/dev_next
 
           OUTPUT=xboard2xui-linux-${GOARCH}
 
-          go build -ldflags "-s -w" -o $OUTPUT ./src/dev_next
+          go build -ldflags "-s -w" -o $OUTPUT .
 
-          zip dist/${OUTPUT}.zip $OUTPUT
+          zip ../../dist/${OUTPUT}.zip $OUTPUT 
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
