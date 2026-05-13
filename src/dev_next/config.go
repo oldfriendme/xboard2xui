@@ -26,6 +26,7 @@ type XuiConfig struct {
     ApiHost   string `json:"ApiHost"`
     User      string `json:"user"`
     Passwd    string `json:"passwd"`
+	ApiToken   string `json:"api-token"`
     NodeID    int    `json:"NodeID"`
     AdminPath string `json:"admin-path"`
 	Database string `json:"database"`
