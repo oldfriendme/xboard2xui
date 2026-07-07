@@ -23,7 +23,7 @@ plugin用于告诉xboard2xui如何操作xui，详细可查看个目录设计
 		"api-token":"MAZAAAAAAAAAAAAAAAAAAA",
 		"NodeID": 1,
 		"admin-path": "",
-		"plugin":"./xboard2xui-3xui2.9.x-linux-and64",
+		"plugin":"./xboard2xui-3xui2.9.x-linux-amd64",
 		"plugin_watchdog":false
 	}
 ```
@@ -31,6 +31,13 @@ plugin用于告诉xboard2xui如何操作xui，详细可查看个目录设计
 `"plugin":"${plugin_file}"` //插件路径，可使用绝对路径或相对路径
 
 `"plugin_watchdog":false` //是否启动插件的watchdog功能，默认不开启
+
+<br>
+
+#### 注意:
+
+`xboard2xui-3xui2.9.x-*` 此类开头为插件程序，不能单独运行，必须被`"plugin":"${plugin_file}"`加载运行
+
 
 ---
 
