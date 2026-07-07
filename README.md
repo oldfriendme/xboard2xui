@@ -90,7 +90,9 @@ shortID复制xui里面，复制第一个shortID到Xboard里面。这里是2e9f�
 		"passwd": "admin",
 		"api-token":"",
 		"NodeID": 1,
-		"admin-path": "/xuipath"
+		"admin-path": "/xuipath",
+		"plugin":"./xboard2xui-3xui2.9.x-linux-and64",
+		"plugin_watchdog":false
 	}
 }
 ```
@@ -113,11 +115,15 @@ shortID复制xui里面，复制第一个shortID到Xboard里面。这里是2e9f�
 
 "admin-path": "/xuipath"，这个填xui path，开头必须为/，结尾不能为/。 比如path为/xuipath/，填/xuipath就行。如果没有，就填"admin-path": ""
 
-此外xui不能开启二步验证，对接api没有二步验证逻辑。
+使用密码对接不能开启二步验证，**使用api-token对接没有此限制**
 
 `"xui-skip-ssl-check": `如果证书与域名不匹配（如直接访问IP，而未使用证书域名），可信环境中可以跳过验证。
 
 `"api-token":""`，可选，默认可留空，也可删去这一行。v0.8.2版本以后开始测试支持。可使用xui token。如果设置，user:pass将不会使用
+
+"plugin":"${plugin_file}" ，插件路径，v.9.0以上比填，v.8.x以下版本可选。可填入绝对路径或相对路径
+
+"plugin_watchdog":false 可选，是否启动插件的watchdog功能
 
 <br>
 
@@ -153,6 +159,18 @@ shortID复制xui里面，复制第一个shortID到Xboard里面。这里是2e9f�
 
 <details>
 	
+<summary>3xui v3.x版本</summary>
+
+<br>
+
+3xui v3.x版本及以上，只能使用api-token操作，这是由插件定义的。详情可以查看[插件源码](plugin)
+
+</details>
+
+<details>
+
+<br>
+
 <summary>xui卡死</summary>
 
 <br>
