@@ -28,6 +28,8 @@ type XuiConfig struct {
     Passwd    string `json:"passwd"`
 	ApiToken   string `json:"api-token"`
     NodeID    int    `json:"NodeID"`
+	Plugin   string `json:"plugin"`
+	PluginRestart   bool `json:"plugin_watchdog"`
     AdminPath string `json:"admin-path"`
 	Database string `json:"database"`
 }
@@ -45,18 +47,8 @@ func readConf(conffile string) Config {
 		os.Exit(-1)
     }
 	
-	mp:=cfg.Protocol
-	
-	valid := map[string]struct{}{
-		"vless": {},
-		"vmess": {},
-		"trojan": {},
-		"shadowsocks": {},
-		"hysteria": {},
-	}
-	
-	if _, ok := valid[mp]; !ok {
-		fmt.Println("ERR: Protocol not supported ",mp)
+	if cfg.Protocol=="" {
+		fmt.Println("ERR: Protocol not found")
 		os.Exit(-1)
 	}
 	

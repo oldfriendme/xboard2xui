@@ -13,8 +13,15 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
-        goarch: [amd64, arm64]
+        version:
+          - 3xui2.9.x
+          - 3xui3.0.x
+          - 3xui3.1.x
+        goarch:
+          - amd64
+          - arm64
 
     steps:
       - name: Checkout
@@ -25,24 +32,30 @@ jobs:
         with:
           go-version: "1.25"
 
+      - name: Prepare source
+        run: |
+          cp plugin/plugin.go plugin/${{ matrix.version }}/plugin.go
+
       - name: Build
         run: |
           mkdir -p dist
+
+          cd plugin/${{ matrix.version }}
+
           export CGO_ENABLED=0
           export GOOS=linux
           export GOARCH=${{ matrix.goarch }}
-          cd src/dev_next
 
-          OUTPUT=xboard2xui-linux-${GOARCH}
+          OUTPUT=xboard2xui-${{ matrix.version }}-linux-${GOARCH}
 
           go build -ldflags "-s -w" -o $OUTPUT .
 
-          zip ../../dist/${OUTPUT}.zip $OUTPUT 
+          zip ../../dist/${OUTPUT}.zip $OUTPUT
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build-${{ matrix.goarch }}
+          name: build-${{ matrix.version }}-${{ matrix.goarch }}
           path: dist/*.zip
 
   release:
