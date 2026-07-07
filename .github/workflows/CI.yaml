@@ -19,6 +19,8 @@ jobs:
           - 3xui2.9.x
           - 3xui3.0.x
           - 3xui3.1.x
+          - sui1.x
+          - xuiold
         goarch:
           - amd64
           - arm64

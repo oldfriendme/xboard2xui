@@ -3,7 +3,11 @@ xboard backend with xui
 
 ### xui 对接Xboard教程。
 
-#### 下面以Reality为例，其他的我没试，理论上也可以。
+更新：v0.9.1版本及以上，可以同时对接其他面板（比如s-ui），参考：[插件说明](plugin)，[对接说明](docs/usage.md)
+
+<br>
+
+#### 下面以xui对接Reality为例，其他的理论上也可以。
 
 <br>
 
